@@ -19,8 +19,8 @@ st.divider()
 tabs=st.tabs(["Upload","Search & View","Analytics"])
 
 with tabs[0]:
-    pass
+    st.write("This is upload page")
 with tabs[1]:
-    pass
+    st.write("This is search and view page")
 with tabs[2]:
     pass
