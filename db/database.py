@@ -1,20 +1,22 @@
 import sqlite3
 import os
-
+import sys
+#common path config
 BASE_DIR=os.path.abspath(
-    os.path.dirname()
+    os.path.join(os.path.dirname(__file__),'..')
 )
+sys.path.append(BASE_DIR)
 
-DB_PATH=os.path.join("data","documents.db")
-
+DB_PATH=os.path.join(BASE_DIR,"data","documents.db")
+#connection code
 def get_connection():
     return sqlite3.connect(DB_PATH)
 
 def init_db():
 
     #Create connection btw databases
-    conn=get_connection()
-    cursor=conn.cursor()
+    connection=get_connection()
+    cursor=connection.cursor()
 
     #Create Tables 
     cursor.execute("""
@@ -29,6 +31,6 @@ def init_db():
     """)
 
     #Commit and release the connection
-    conn.commit()
-    conn.close()
+    connection.commit()
+    connection.close()
 
