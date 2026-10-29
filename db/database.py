@@ -29,8 +29,9 @@ def init_db():
         upload_date TEXT,
         Total_Pages INTEGER)
     """)
-
-    #Commit and release the connection
+    # cursor.execute("PRAGMA table_info(documents)")
+    # print(cursor.fetchall())
+    #Comm it and release the connections
     connection.commit()
     connection.close()
 
