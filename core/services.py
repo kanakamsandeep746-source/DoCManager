@@ -35,8 +35,9 @@ class DocumentService:
             Total_Pages=total_pages
         )
         self.repo.add_document(doc)
+    
         # self.repo.add_document(doc)
-
+    
 # name,Path,thumbnail_path,tags,description,upload_date,Total_Pages
 #Save file
 #save thumbnail
@@ -44,4 +45,8 @@ class DocumentService:
 #convert to images
 #create req variables :upload date
 #save to db
-#
+# 
+    
+    def search_documents(self,tag=None,date=None):
+        return self.repo.search_documents(tag,date)
+        

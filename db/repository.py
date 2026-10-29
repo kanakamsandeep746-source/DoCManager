@@ -24,3 +24,30 @@ class DocumentRepository:
 
         conn.commit()
         conn.close()
+    def search_documents(self,tag=None,date=None):
+        conn=get_connection()
+        cursor=conn.cursor()
+        query="Select * from documents"
+        conditons=[]
+        params=[]
+
+        if tag:
+            conditons.append("tags like ?")
+            params.append(f"%{tag}%")
+
+        if date:
+            conditons.append("upload_date ?")
+            params.append(date)
+
+        if conditons:
+            final_query=query+" Where " + "or".join(conditons)
+        
+
+        cursor.execute(final_query,params)
+
+        rows=cursor.fetchall()
+
+        conn.close()
+
+        return [Document(*row) for row in rows]
+    
