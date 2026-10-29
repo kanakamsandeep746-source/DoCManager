@@ -5,3 +5,13 @@ __pycache__/
 # Python compiled files
 *.pyc
 *.pyo
+
+
+
+# Ignore all files inside these folders
+storage/pdfs/*
+storage/thumbnails/*
+
+# Keep placeholder files so folders appear on GitHub
+!storage/pdfs/.gitkeep
+!storage/thumbnails/.gitkeep
