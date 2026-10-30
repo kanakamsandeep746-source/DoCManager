@@ -33,6 +33,23 @@ def init_db():
     # cursor.execute("PRAGMA table_info(documents)")
     # print(cursor.fetchall())
     #Comm it and release the connections
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS page_vists(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        document_id INTEGER,
+        page_number INTEGER,
+        time_stamp TEXT
+        )
+    """)
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS app_visits (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        event_type TEXT,
+        timestamp TEXT
+    )
+    """)
     connection.commit()
     connection.close()
 

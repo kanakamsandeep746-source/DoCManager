@@ -55,4 +55,13 @@ class DocumentRepository:
         conn.close()
 
         return [Document(*row) for row in rows]
+
+    def get_all_documents(self):
+        conn=get_connection()
+        cursor=conn.cursor()
+
+        cursor.execute("select* from documents")
+        rows=cursor.fetchall()
+
+        return [Document(*row) for row in rows]
     
