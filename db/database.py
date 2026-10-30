@@ -25,6 +25,7 @@ def init_db():
         name TEXT,
         Path TEXT,
         thumbnail_path TEXT,
+        tags TEXT,
         description TEXT,
         upload_date TEXT,
         Total_Pages INTEGER)

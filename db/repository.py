@@ -9,6 +9,11 @@ class DocumentRepository:
         conn=get_connection()
         cursor=conn.cursor()
 
+        # cursor.execute("""
+        # ALTER TABLE documents
+        # ADD COLUMN tags TEXT
+        # """)
+
         cursor.execute("""
         INSERT INTO documents(
             name,Path,thumbnail_path,tags,description,upload_date,Total_Pages
@@ -36,7 +41,7 @@ class DocumentRepository:
             params.append(f"%{tag}%")
 
         if date:
-            conditons.append("upload_date ?")
+            conditons.append("upload_date = ?")
             params.append(date)
 
         if conditons:
