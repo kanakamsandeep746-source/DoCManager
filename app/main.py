@@ -54,7 +54,7 @@ if st.session_state.show_reset:
     password_input=st.text_input("Enter your Password",type="password")
 
     if st.button("Confirm Reset"):
-        if password_input=="abcdefghi":
+        if password_input==ADMIN_PASSWORD:
             import shutil # os
 
             # Delete DB
